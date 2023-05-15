@@ -1,0 +1,57 @@
+.home {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    z-index: 1;
+}
+.imageContainer {
+    height: 80vh;
+}
+.homeImage {
+    width: 100vw;
+    height: 80vh;
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+.header {
+    position: absolute;
+    font-family: 'Helvetica Neue', sans-serif;
+    width: 95vw;
+    padding: 0 2.5vw;
+    font-size: 5vw;
+    /* top: 25vh; */
+    /* right: 5vw; */
+    bottom: 12.5vh;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .home {
+        width: 100vw;
+        height: 100vh;
+    }
+    .imageContainer {
+        height: 100vh;
+    }
+    .homeImage {
+        width: 75vw;
+        height: 100vh;
+    }
+    .header {
+        width: 60vw;
+        font-size: 1.75vw;
+        top: 25vh;
+        right: 5vw;
+        text-align: left;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .header {
+        top: 30vh;
+    }
+}

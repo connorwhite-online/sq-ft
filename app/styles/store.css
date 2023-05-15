@@ -1,0 +1,75 @@
+.store {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    margin-top: 100vh;
+}
+.webgl {
+    width: 90vw;
+}
+.product {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+}
+.productName {
+    font-family: 'Helvetica Neue', sans-serif;
+}
+.productPrice {
+    font-family: 'Helvetica Neue', sans-serif;
+}
+.productDescription {
+    font-family: 'Helvetica Neue', sans-serif;
+}
+.productButton {
+
+}
+.productButton button {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 1vh 2.5vw;
+}
+
+@media screen and (min-width: 768px) {
+    .store {
+        width: 75vw;
+        height: 99vh;
+        padding: 0 2.5vw;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 100vw;
+        margin-top: 0;
+        gap: 2.5vw;
+    }
+    .webgl {
+        width: 32.5vw;
+        height: 75vh;
+    }
+    .product {
+        width: 32.5vw;
+        height: auto;
+    }
+    .productName {
+        font-size: 3vw;
+    }
+    .productPrice {
+        font-size: 2vw;
+    }
+    .productDescription {
+        font-size: 1.25vw;
+    }
+    .productButton {
+    
+    }
+    .productButton button {
+        font-size: 1.5w;
+    }
+}
