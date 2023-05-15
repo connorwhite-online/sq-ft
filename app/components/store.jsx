@@ -1,13 +1,10 @@
-import '~/styles/store.css';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 
 export default function Store() {
     return (
         <div className='store'>
             <div className='webgl'>
                 <Canvas >
-                    <OrbitControls />
                     {/* <ambientLight /> */}
                     <pointLight position={[10, 10, -3]} intensity={.5}/>
                     <pointLight position={[5, -5, 3]} intensity={.5} />

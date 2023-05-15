@@ -7,11 +7,17 @@ import {
   useLoaderData,
 } from '@remix-run/react';
 import styles from './styles/app.css';
+import landingStyles from './styles/landing.css';
+import menuStyles from './styles/menu.css';
+import storeStyles from './styles/store.css';
 import favicon from '../public/favicon.svg';
 
 export const links = () => {
   return [
     {rel: 'stylesheet', href: styles},
+    {rel: 'stylesheet', href: landingStyles},
+    {rel: 'stylesheet', href: menuStyles},
+    {rel: 'stylesheet', href: storeStyles},
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',
