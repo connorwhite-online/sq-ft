@@ -1,5 +1,6 @@
 .store {
     width: 100vw;
+    position: absolute;
     height: auto;
     display: flex;
     flex-direction: column;

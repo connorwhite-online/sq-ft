@@ -2,6 +2,7 @@
     position: fixed;
     display: flex;
     width: 90vw;
+    height: auto;
     padding: 5vw;
     justify-content: space-between;
     z-index: 10;
