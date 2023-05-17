@@ -3,4 +3,8 @@ body {
   background: #fbf8f1;
   font-family:'Helvetica Neue', sans-serif;
   padding: 0;
+  scroll-behavior: smooth;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
