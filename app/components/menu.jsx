@@ -3,7 +3,7 @@ export default function Menu() {
         <div className='menu'>
             <div className='logoBox'><img className='logo' src='./images/logo-full-black.svg' alt='sqft logo'></img></div>
             <div className='nav'>
-                <div className='navItem'><a className='navLink'>Buy</a></div>
+                <div className='navItem'><a className='navLink'>Info</a></div>
             </div>
         </div>
     )
