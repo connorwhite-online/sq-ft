@@ -18,12 +18,16 @@
 }
 .header {
     position: absolute;
-    font-family: 'Helvetica Neue', sans-serif;
     width: 95vw;
     padding: 0 2.5vw;
-    font-size: 5vw;
     bottom: 12.5vh;
     text-align: center;
+    clip-path: inset(0);
+}
+
+.headerCopy {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 5vw;
 }
 
 @media screen and (min-width: 768px) {
@@ -40,16 +44,19 @@
     }
     .header {
         width: 60vw;
-        font-size: 1.75vw;
-        top: 25vh;
+        height: 150px;
+        top: 50vh;
         right: 5vw;
         text-align: left;
         padding: 0;
     }
+    .headerCopy {
+        font-size: 1.75vw;
+    }
 }
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
     .header {
         top: 30vh;
     }
-}
+} */

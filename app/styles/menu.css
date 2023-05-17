@@ -15,7 +15,7 @@
     height: auto;
 }
 .nav {
-
+    clip-path: inset(0);
 }
 .navItem {
 
