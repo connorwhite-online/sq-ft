@@ -1,16 +1,19 @@
 .store {
     width: 100vw;
-    position: absolute;
+    padding-bottom: 10vh;
     height: auto;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-left: 0;
     margin-top: 100vh;
+    gap: 2.5vh;
 }
 .webgl {
     width: 90vw;
+    height: 75vh;
 }
 .product {
     width: 90vw;
@@ -20,12 +23,15 @@
 }
 .productName {
     font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10vw;
 }
 .productPrice {
     font-family: 'Helvetica Neue', sans-serif;
+    font-size: 6vw;
 }
 .productDescription {
     font-family: 'Helvetica Neue', sans-serif;
+    font-size: 5vw;
 }
 .productButton {
 
@@ -35,12 +41,13 @@
     color: black;
     background-color: transparent;
     border: 1px solid black;
-    padding: 1vh 2.5vw;
+    padding: 1vh 5vw;
+    font-size: 5vw;
 }
 
 @media screen and (min-width: 768px) {
     .store {
-        width: 75vw;
+        width: 60vw;
         height: 99vh;
         padding: 0 2.5vw;
         flex-direction: row;
@@ -55,7 +62,7 @@
         height: 75vh;
     }
     .product {
-        width: 32.5vw;
+        width: 20vw;
         height: auto;
     }
     .productName {
@@ -71,6 +78,7 @@
     
     }
     .productButton button {
-        font-size: 1.5w;
+        font-size: 1.5vw;
+        padding: 1vh 2.5vw;
     }
 }
