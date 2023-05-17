@@ -23,6 +23,8 @@
 a.navLink {
     text-decoration: none;
     color: black;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 7vw;
 }
 
 @media screen and (min-width: 768px) {
@@ -42,8 +44,9 @@ a.navLink {
     
     }
     .navItem {
-    
+        
     }
     a.navLink {
+        font-size: 2vw;
     }
 }
