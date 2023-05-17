@@ -20,7 +20,7 @@ export default function Model(props) {
 
   // Auto-rotate the model
   useFrame(({ clock }) => {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 900) {
       const elapsedTime = clock.getElapsedTime();
       groupRef.current.rotation.y = elapsedTime * 0.1; // Adjust the rotation speed as needed
     }
