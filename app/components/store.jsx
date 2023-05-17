@@ -3,20 +3,18 @@ import Model from './model';
 
 export default function Store() {
 
-    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
-
     return (
         <div className='store'>
             <div className='webgl'>
                 <Canvas >
-                    {/* <ambientLight /> */}
+                    <ambientLight />
                     <pointLight position={[10, 10, -3]} intensity={.5}/>
                     <pointLight position={[5, -5, 3]} intensity={.5} />
                     {/* <mesh rotation-y={45}>
                         <boxBufferGeometry attach='geometry' args={[2, 3, .25]}/>
                         <meshStandardMaterial attach='material' color='turquoise' />
                     </mesh> */}
-                    <Model autoRotate={isMobile} />
+                    <Model />
                 </Canvas>
             </div>
             <div className='product'>
