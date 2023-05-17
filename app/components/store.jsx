@@ -1,10 +1,60 @@
+import React, { useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+// Component Imports
 import Model from './model';
 
 export default function Store() {
+    const storeRef = useRef();
+
+    useEffect(() => {
+        let ctx = gsap.context(() => {
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: storeRef.current,
+                    start: 'right left',
+                    end: 'left 60%',
+                    scrub: true,
+                    markers: true,
+                },
+            });
+                tl.from('.webgl', {
+                    duration: 1,
+                    scale: 0,
+                    opacity: 0,
+                    ease: 'power3.inOut',
+                }, 1);
+                tl.from('.productName', {
+                    duration: 1,
+                    opacity: 0,
+                    x: -100,
+                    ease: 'power3.inOut',
+                }, 1);
+                tl.from('.productPrice', {
+                    duration: 1,
+                    opacity: 0,
+                    x: -100,
+                    ease: 'power3.inOut',
+                }, 1.5);
+                tl.from('.productDescription', {
+                    duration: 1,
+                    opacity: 0,
+                    ease: 'power3.inOut',
+                }, 2);
+                tl.from('.productButton', {
+                    duration: 1,
+                    opacity: 0,
+                    ease: 'power3.inOut',
+                }, 2.5);
+        }, storeRef.current);
+        return () => ctx.revert();
+    }, []);
 
     return (
-        <div className='store'>
+        <div className='store' ref={storeRef}>
             <div className='webgl'>
                 <Canvas >
                     <ambientLight />
