@@ -7,6 +7,7 @@
 }
 .imageContainer {
     height: 80vh;
+    clip-path: inset(0);
 }
 .homeImage {
     width: 100vw;

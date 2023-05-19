@@ -9,15 +9,16 @@ export default function Landing() {
         let ctx = gsap.context(() => {
             let tl = gsap.timeline({});
                 tl.from('.imageContainer', {
-                    duration: 2,
-                    opacity: 0,
-                    ease: 'power3.inOut',
+                    duration: 1.5,
+                    // opacity: 0,
+                    clipPath: 'inset(0 100% 0 0)',
+                    ease: 'power4.inOut',
                 });
-                tl.from('.headerCopy', {
-                    duration: 1,
+                tl.from('.header', {
+                    duration: 2.5,
+                    clipPath: 'inset(0 0 100% 0)',
                     opacity: 0,
-                    y: 100,
-                    ease: 'power3.inOut',
+                    ease: 'power4.inOut',
                 });
         }, landingRef.current);
         return () => ctx.revert();
