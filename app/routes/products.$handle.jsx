@@ -26,17 +26,7 @@ export async function loader({params, context}) {
       <div className="product-wrapper">
         <div className='productName'>{product.title}</div>
         <div className='productDescription'>{product.description}</div>
-        <PrintJson data={product} />
       </div>
-    );
-  }
-
-function PrintJson({data}) {
-    return (
-      <details className="outline outline-2 outline-blue-300 p-4 my-2">
-        <summary>Product JSON</summary>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      </details>
     );
   }
 
