@@ -10,6 +10,7 @@ export default function Menu() {
             let tl = gsap.timeline({});
                 tl.from('.logoBox', {
                     duration: 1,
+                    delay: 1,
                     opacity: 0,
                     ease: 'power3.inOut',
                 });
