@@ -16,6 +16,7 @@ export default function Landing() {
                 });
                 tl.from('.header', {
                     duration: 2.5,
+                    delay: .5,
                     clipPath: 'inset(0 0 100% 0)',
                     opacity: 0,
                     ease: 'power4.inOut',
