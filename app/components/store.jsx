@@ -12,15 +12,7 @@ export default function Store() {
 
     useEffect(() => {
         let ctx = gsap.context(() => {
-            let tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: storeRef.current,
-                    start: 'right left',
-                    end: 'left 60%',
-                    scrub: true,
-                    markers: true,
-                },
-            });
+            let tl = gsap.timeline({});
                 tl.from('.webgl', {
                     duration: 1,
                     scale: 0,

@@ -50,7 +50,7 @@
     .store {
         width: 60vw;
         height: 99vh;
-        padding: 0 2.5vw;
+        padding: 0 2vw;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -59,7 +59,7 @@
         gap: 2.5vw;
     }
     .webgl {
-        width: 32.5vw;
+        width: 33vw;
         height: 75vh;
     }
     .product {
