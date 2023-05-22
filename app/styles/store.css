@@ -49,7 +49,7 @@
 @media screen and (min-width: 768px) {
     .store {
         width: 60vw;
-        height: 99vh;
+        height: 100vh;
         padding: 0 2vw;
         flex-direction: row;
         justify-content: space-between;

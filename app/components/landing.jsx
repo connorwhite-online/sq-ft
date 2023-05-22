@@ -9,13 +9,14 @@ export default function Landing() {
         let ctx = gsap.context(() => {
             let tl = gsap.timeline({});
                 tl.from('.imageContainer', {
-                    duration: 1.5,
+                    duration: 1,
+                    delay: .5,
                     // opacity: 0,
                     clipPath: 'inset(0 100% 0 0)',
                     ease: 'power4.inOut',
                 });
                 tl.from('.header', {
-                    duration: 2.5,
+                    duration: 2,
                     delay: .5,
                     clipPath: 'inset(0 0 100% 0)',
                     opacity: 0,
