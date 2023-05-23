@@ -64,6 +64,14 @@ query AllProducts {
       title
       description
       handle
+      vendor
+      variants(first: 1) {
+        nodes {
+          price {
+            amount
+          }
+        }
+      }
     }
   }
 }

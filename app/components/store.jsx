@@ -9,17 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 // Component Imports
 import Model from './model';
 
-export async function loader({context}) {
-    const {products} = await context.storefront.query(PRODUCTS_QUERY);
-    return json({
-      products: products.nodes,
-    });
-}
-
 export default function Store() {
 
     const {products} = useLoaderData();
     console.log(products);
+    console.log(products[0].variants.nodes[0].price.amount);
 
     const storeRef = useRef();
 
@@ -75,7 +69,7 @@ export default function Store() {
                     {products[0].title}
                 </div>
                 <div className='productPrice'>
-                    $20.00
+                    ${products[0].variants.nodes[0].price.amount}
                 </div>
                 <div className='productDescription'>
                     {products[0].description}
@@ -87,17 +81,3 @@ export default function Store() {
         </div>
     )
 }
-
-const PRODUCTS_QUERY = `#graphql
-query AllProducts {
-  products(first: 3) {
-        nodes {
-            id
-            title
-            description
-            handle
-            vendor
-        }
-  }
-}
-`;
