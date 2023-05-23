@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import {useLoaderData} from '@remix-run/react';
+import {json} from '@shopify/remix-oxygen';
 import Landing from "~/components/landing";
 import Menu from "~/components/menu";
 import Store from "~/components/store";
@@ -12,13 +13,16 @@ export function meta() {
   }
 
   export async function loader({context}) {
-    return await context.storefront.query(COLLECTIONS_QUERY);
+    const {products} = await context.storefront.query(PRODUCTS_QUERY);
+    return json({
+      products: products.nodes,
+    });
   }
 
   export default function Index() {
 
-    const {collections} = useLoaderData();
-    console.log(collections);
+    // const {products} = useLoaderData();
+    // console.log(products);
 
     useEffect(() => {
       const handleScroll = () => {
@@ -43,21 +47,22 @@ export function meta() {
 
     return (
       <div className="app">
-        <Menu />
-        <Landing />
-        <Store />
+          <Menu />
+          <Landing />
+          <Store />
       </div>
     );
   }
 
 
  
-const COLLECTIONS_QUERY = `#graphql
-query FeaturedCollections {
-  collections(first: 3, query: "collection_type:smart") {
+const PRODUCTS_QUERY = `#graphql
+query AllProducts {
+  products(first: 3) {
     nodes {
       id
       title
+      description
       handle
     }
   }

@@ -1,13 +1,26 @@
 import React, { useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { gsap } from 'gsap';
+import {useLoaderData} from '@remix-run/react';
+import {json} from '@shopify/remix-oxygen';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 // Component Imports
 import Model from './model';
 
+export async function loader({context}) {
+    const {products} = await context.storefront.query(PRODUCTS_QUERY);
+    return json({
+      products: products.nodes,
+    });
+}
+
 export default function Store() {
+
+    const {products} = useLoaderData();
+    console.log(products);
+
     const storeRef = useRef();
 
     useEffect(() => {
@@ -50,8 +63,6 @@ export default function Store() {
             <div className='webgl'>
                 <Canvas >
                     <ambientLight />
-                    <pointLight position={[10, 10, -3]} intensity={.5}/>
-                    <pointLight position={[5, -5, 3]} intensity={.5} />
                     {/* <mesh rotation-y={45}>
                         <boxBufferGeometry attach='geometry' args={[2, 3, .25]}/>
                         <meshStandardMaterial attach='material' color='turquoise' />
@@ -61,13 +72,13 @@ export default function Store() {
             </div>
             <div className='product'>
                 <div className='productName'>
-                    Issue 01
+                    {products[0].title}
                 </div>
                 <div className='productPrice'>
                     $20.00
                 </div>
                 <div className='productDescription'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies ultricies, nunc nisl ultricies nunc, quis ultricies nisl nisl nec nisl. Donec auctor, nisl eget ultricies ultricies, nunc nisl ultricies nunc, quis ultricies nisl nisl nec nisl.
+                    {products[0].description}
                 </div>
                 <div className='productButton'>
                     <button>Add to Bag</button>
@@ -76,3 +87,17 @@ export default function Store() {
         </div>
     )
 }
+
+const PRODUCTS_QUERY = `#graphql
+query AllProducts {
+  products(first: 3) {
+        nodes {
+            id
+            title
+            description
+            handle
+            vendor
+        }
+  }
+}
+`;
