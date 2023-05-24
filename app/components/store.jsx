@@ -23,25 +23,13 @@ export default function Store() {
                 ease: 'power3.inOut',
                 scrollTrigger: {
                     trigger: '.webgl',
-                    horizontal: true,
-                    media: '(min-width: 768px)',
-                },
-                scrollTrigger: {
-                    trigger: '.webgl',
-                    horizontal: false,
-                    media: '(max-width: 767px)',
+                    horizontal: getHorizontalSetting(),
                 }
             });
             let tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.product',
-                    horizontal: true,
-                    media: '(min-width: 768px)',
-                },
-                scrollTrigger: {
-                    trigger: '.product',
-                    horizontal: false,
-                    media: '(max-width: 767px)',
+                    horizontal: getHorizontalSetting(),
                 }
             });
                 tl.from('.productName', {
@@ -67,7 +55,21 @@ export default function Store() {
                     ease: 'power3.inOut',
                 }, 2.5);
         }, storeRef.current);
-        return () => ctx.revert();
+
+        function getHorizontalSetting() {
+            return window.innerWidth >= 768;
+          }
+      
+          function handleResize() {
+            ScrollTrigger.refresh();
+          }
+      
+          window.addEventListener('resize', handleResize);
+
+        return () => {
+            ctx.revert();
+            window.removeEventListener('resize', handleResize);
+        } 
     }, []);
 
     return (
