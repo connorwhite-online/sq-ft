@@ -4,7 +4,6 @@ import {json} from '@shopify/remix-oxygen';
 import Landing from "~/components/landing";
 import Menu from "~/components/menu";
 import Store from "~/components/store";
-import Loading from '../components/loading';
 
 export function meta() {
     return [
@@ -48,11 +47,9 @@ export function meta() {
 
     return (
       <div className="app">
-        <Suspense fallback={<Loading />}>
           <Menu />
           <Landing />
           <Store />
-        </Suspense>
       </div>
     );
   }
