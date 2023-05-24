@@ -11,7 +11,6 @@ export default function Landing() {
                 tl.from('.imageContainer', {
                     duration: 1,
                     delay: .5,
-                    // opacity: 0,
                     clipPath: 'inset(0 100% 0 0)',
                     ease: 'power4.inOut',
                 });
