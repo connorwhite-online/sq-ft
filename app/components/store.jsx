@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { gsap } from 'gsap';
 import {useLoaderData} from '@remix-run/react';
-import {json} from '@shopify/remix-oxygen';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,20 +11,38 @@ import Model from './model';
 export default function Store() {
 
     const {products} = useLoaderData();
-    console.log(products);
-    console.log(products[0].variants.nodes[0].price.amount);
 
     const storeRef = useRef();
 
     useEffect(() => {
         let ctx = gsap.context(() => {
-            let tl = gsap.timeline({});
-                tl.from('.webgl', {
-                    duration: 1,
-                    scale: 0,
-                    opacity: 0,
-                    ease: 'power3.inOut',
-                }, 1);
+            gsap.from('.webgl', {
+                duration: 3,
+                opacity: 0,
+                ease: 'power3.inOut',
+                scrollTrigger: {
+                    trigger: '.webgl',
+                    horizontal: true,
+                    media: '(min-width: 768px)',
+                },
+                scrollTrigger: {
+                    trigger: '.webgl',
+                    horizontal: false,
+                    media: '(max-width: 767px)',
+                }
+            });
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.product',
+                    horizontal: true,
+                    media: '(min-width: 768px)',
+                },
+                scrollTrigger: {
+                    trigger: '.product',
+                    horizontal: false,
+                    media: '(max-width: 767px)',
+                }
+            });
                 tl.from('.productName', {
                     duration: 1,
                     opacity: 0,
