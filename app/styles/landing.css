@@ -6,12 +6,12 @@
     z-index: 1;
 }
 .imageContainer {
-    height: 80vh;
+    height: 75vh;
     clip-path: inset(0);
 }
 .homeImage {
     width: 100vw;
-    height: 80vh;
+    height: 75vh;
     flex-shrink: 0;
     min-width: 100%;
     min-height: 100%;
@@ -21,7 +21,7 @@
     position: absolute;
     width: 95vw;
     padding: 0 2.5vw;
-    bottom: 5vh;
+    bottom: 10vh;
     text-align: center;
     clip-path: inset(0);
 }
