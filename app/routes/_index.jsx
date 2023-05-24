@@ -7,8 +7,8 @@ import Store from "~/components/store";
 
 export function meta() {
     return [
-      {title: 'Hydrogen'},
-      {description: 'A custom storefront powered by Hydrogen'},
+      {title: 'SQ FT'},
+      {description: 'SQ FT Magazine'},
     ];
   }
 
