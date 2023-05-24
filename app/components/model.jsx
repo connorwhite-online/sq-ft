@@ -23,6 +23,7 @@ export default function Model(props) {
     if (window.innerWidth <= 900) {
       const elapsedTime = clock.getElapsedTime();
       groupRef.current.rotation.y = elapsedTime * 0.1; // Adjust the rotation speed as needed
+      groupRef.current.rotation.x = 0;
     }
   });
 
