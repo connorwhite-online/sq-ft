@@ -14,6 +14,7 @@ export default function Store() {
 
     const storeRef = useRef();
 
+    // Store Loading Animations
     useEffect(() => {
         let ctx = gsap.context(() => {
             gsap.from('.webgl', {
