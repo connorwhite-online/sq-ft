@@ -4,6 +4,7 @@
     display: flex;
     position: absolute;
     z-index: 1;
+    visibility: hidden;
 }
 .imageContainer {
     height: 75vh;

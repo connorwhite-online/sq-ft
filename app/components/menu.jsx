@@ -8,6 +8,7 @@ export default function Menu() {
     useEffect(() => {
         let ctx = gsap.context(() => {
             let tl = gsap.timeline({});
+                tl.to(menuRef.current, {visibility: 'visible', duration: .25});
                 tl.from('.logoBox', {
                     duration: 1,
                     delay: 1,
