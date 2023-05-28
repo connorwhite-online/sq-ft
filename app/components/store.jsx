@@ -75,7 +75,7 @@ export default function Store() {
     return (
         <div className='store' ref={storeRef}>
             <div className='webgl'>
-                <Canvas >
+                <Canvas camera={{fov: 20}}>
                     <ambientLight />
                     {/* <mesh rotation-y={45}>
                         <boxBufferGeometry attach='geometry' args={[2, 3, .25]}/>

@@ -37,7 +37,7 @@ export default function Model(props) {
   }, []);
 
   return (
-    <group {...props} dispose={null} ref={groupRef} >
+    <group {...props} dispose={null} ref={groupRef} scale={.25}>
       <mesh
         castShadow
         receiveShadow
