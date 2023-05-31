@@ -14,6 +14,32 @@ export default function Store() {
 
     const storeRef = useRef();
 
+    // Button Hover In Animation
+    const buttonHoverIn = () => {
+        let ctx = gsap.context(() => {
+            gsap.to('.productButton button', {
+                duration: .25,
+                color: '#fbf8f1',
+                backgroundColor: '#000000',
+                ease: 'power3.inOut',
+            });
+        }, storeRef.current);
+        return () => ctx.revert();
+    }
+    
+    // Button Hover Out Animation
+    const buttonHoverOut = () => {
+        let ctx = gsap.context(() => {
+            gsap.to('.productButton button', {
+                duration: .25,
+                color: '#000000',
+                backgroundColor: 'transparent',
+                ease: 'power3.inOut',
+            });
+        }, storeRef.current);
+        return () => ctx.revert();
+    }
+
     // Store Loading Animations
     useEffect(() => {
         let ctx = gsap.context(() => {
@@ -95,7 +121,7 @@ export default function Store() {
                     {products[0].description}
                 </div>
                 <div className='productButton'>
-                    <a href='https://sq-ft-2544.myshopify.com/cart/45015873323315:1' target="_blank" rel="noopener noreferrer"><button>Buy {products[0].title}</button></a>
+                    <a href='https://sq-ft-2544.myshopify.com/cart/45015873323315:1' target="_blank" rel="noopener noreferrer"><button onMouseEnter={buttonHoverIn} onMouseLeave={buttonHoverOut}>Buy {products[0].title}</button></a>
                 </div>
             </div>
         </div>
