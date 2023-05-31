@@ -32,9 +32,9 @@ export default function Landing() {
                 <img src='./images/P-30.png' alt='home' className='homeImage' />
             </div>
             <div className='header'>
-                <h1 className='headerCopy'>
+                <div className='headerCopy'>
                     Sq Ft magazine tells stories from the heart and outskirts of the world of art and design. We shine a light on artists and art lovers, and dissect how they shape and are shaped by the spaces they occupy.
-                </h1>
+                </div>
             </div>
         </div>
     )
