@@ -26,7 +26,7 @@ export default function Store() {
         }, storeRef.current);
         return () => ctx.revert();
     }
-    
+
     // Button Hover Out Animation
     const buttonHoverOut = () => {
         let ctx = gsap.context(() => {
@@ -115,7 +115,7 @@ export default function Store() {
                     {products[0].title}
                 </div>
                 <div className='productPrice'>
-                    ${products[0].variants.nodes[0].price.amount}
+                ${parseFloat(products[0].variants.nodes[0].price.amount).toFixed(2)}
                 </div>
                 <div className='productDescription'>
                     {products[0].description}
