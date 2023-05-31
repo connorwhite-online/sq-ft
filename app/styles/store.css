@@ -44,6 +44,7 @@
     border: 1px solid black;
     padding: 1vh 5vw;
     font-size: 5vw;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
