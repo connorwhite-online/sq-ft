@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import {useLoaderData} from '@remix-run/react';
 import {json} from '@shopify/remix-oxygen';
 import Landing from "~/components/landing";
@@ -21,8 +21,7 @@ export function meta() {
 
   export default function Index() {
 
-    // const {products} = useLoaderData();
-    // console.log(products);
+    const containerRef = useRef();
 
     useEffect(() => {
       const handleScroll = () => {
@@ -45,29 +44,15 @@ export function meta() {
       };
     }, []);
 
-    // useEffect(() => {
-    //   const handleScroll = () => {
-    //     const screenWidth = window.innerWidth;
-    //     const scrollDisabled = screenWidth >= 768; // Set your desired screen width threshold here
-  
-    //     if (scrollDisabled) {
-    //       document.body.classList.add('disable-scroll');
-    //     } else {
-    //       document.body.classList.remove('disable-scroll');
-    //     }
-    //   };
-  
-    //   handleScroll(); // Initial check on component mount
-  
-    //   window.addEventListener('resize', handleScroll);
-  
-    //   return () => {
-    //     window.removeEventListener('resize', handleScroll);
-    //   };
-    // }, []);
+    // const handleWheel = (e) => {
+    //   e.preventDefault();
+    //   // containerRef.current.scrollLeft += e.deltaY;
+    //   window.scrollBy(e.deltaY, 0);
+    //   console.log(containerRef.current.scrollBy);
+    // };
 
     return (
-      <div className="app">
+      <div className="app" ref={containerRef}>
           <Menu />
           <Landing />
           <Store />
