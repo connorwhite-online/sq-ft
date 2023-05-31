@@ -95,7 +95,7 @@ export default function Store() {
                     {products[0].description}
                 </div>
                 <div className='productButton'>
-                    <button>Add to Bag</button>
+                    <a href='https://sq-ft-2544.myshopify.com/cart/45015873323315:1' target="_blank" rel="noopener noreferrer"><button>Buy {products[0].title}</button></a>
                 </div>
             </div>
         </div>
