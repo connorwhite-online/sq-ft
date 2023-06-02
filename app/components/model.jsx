@@ -7,51 +7,53 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF("/sqft-01.glb");
   const groupRef = useRef();
 
-  // // Rotate the model based on mouse movement
-  // const handleMouseMove = (event) => {
-  //   const { clientX, clientY } = event;
-  //   const { innerWidth, innerHeight } = window;
+  // Rotate the model based on mouse movement
+  const handleMouseMove = (event) => {
+    const { clientX, clientY } = event;
+    const { innerWidth, innerHeight } = window;
 
-  //   const x = (clientX / innerWidth) * 2 - 1;
-  //   const y = -(clientY / innerHeight) * 2 + 1;
+    const x = (clientX / innerWidth) * 2 - 1;
+    const y = -(clientY / innerHeight) * 2 + 1;
 
-  //   groupRef.current.rotation.x = y * -.5;
-  //   groupRef.current.rotation.y = x * 2.5;
-  // };
+    setTimeout(() => {
+      groupRef.current.rotation.x = y * -.5;
+      groupRef.current.rotation.y = x * 2.5;
+    }, 150);
+  };
 
-  useFrame(( state, delta ) => {
-    const handleMouseMove = (event) => {
-      const { clientX, clientY } = event;
-      const { innerWidth, innerHeight } = window;
+  // useFrame(( state, delta ) => {
+  //   const handleMouseMove = (event) => {
+  //     const { clientX, clientY } = event;
+  //     const { innerWidth, innerHeight } = window;
 
-      const x = (clientX / innerWidth) * 2 - 1;
-      const y = -(clientY / innerHeight) * 2 + 1;
+  //     const x = (clientX / innerWidth) * 2 - 1;
+  //     const y = -(clientY / innerHeight) * 2 + 1;
 
-      dampE( groupRef.current.rotation, [y * -.5, x * 2.5, 0], 0.25, delta);
-    }
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    }
-  });
+  //     dampE( groupRef.current.rotation, [y * -.5, x * 2.5, 0], 0.75, delta);
+  //   }
+  //   window.addEventListener('mousemove', handleMouseMove);
+  //   return () => {
+  //     window.removeEventListener('mousemove', handleMouseMove);
+  //   }
+  // });
 
   // Auto-rotate the model
   useFrame(({ clock }) => {
     if (window.innerWidth <= 900) {
       const elapsedTime = clock.getElapsedTime();
-      groupRef.current.rotation.y = elapsedTime * 0.1; // Adjust the rotation speed as needed
+      groupRef.current.rotation.y = elapsedTime * 0.25; // Adjust the rotation speed as needed
       groupRef.current.rotation.x = 0;
     }
   });
 
-  // useEffect(() => {
-  //   // Add event listener to track mouse movement
-  //   window.addEventListener('mousemove', handleMouseMove);
+  useEffect(() => {
+    // Add event listener to track mouse movement
+    window.addEventListener('mousemove', handleMouseMove);
 
-  //   return () => {
-  //     window.removeEventListener('mousemove', handleMouseMove);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   return (
     <group {...props} dispose={null} ref={groupRef} scale={.25}>
