@@ -38,8 +38,9 @@
 }
 .productDescription {
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 5vw;
+    font-size: 4vw;
     padding-bottom: 5vh;
+    text-align: justify;
 }
 .productButton {
     align-self: center;
@@ -83,6 +84,7 @@
     }
     .productDescription {
         font-size: 1.25vw;
+        text-align: left;
     }
     .productButton {
         align-self: flex-start;
