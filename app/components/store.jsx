@@ -10,6 +10,7 @@ import Model from './model';
 
 export default function Store() {
 
+    // Get products from loader data
     const {products} = useLoaderData();
     const storeRef = useRef();
 
