@@ -7,8 +7,8 @@ import Store from "~/components/store";
 
 export function meta() {
     return [
-      {title: 'SQ FT'},
-      {description: 'SQ FT Magazine'},
+      {title: 'sq ft'},
+      {description: 'sq ft Magazine'},
     ];
   }
 
