@@ -121,7 +121,7 @@ export default function Store() {
                     {products[0].description}
                 </div>
                 <div className='productButton'>
-                    <a href='https://sq-ft-2544.myshopify.com/cart/45015873323315:1' target="_blank" rel="noopener noreferrer"><button onMouseEnter={buttonHoverIn} onMouseLeave={buttonHoverOut}>Buy {products[0].title}</button></a>
+                    <a href='https://sq-ft-2544.myshopify.com/cart/45015873323315:1' target="_blank" rel="noopener noreferrer"><button onMouseEnter={buttonHoverIn} onMouseLeave={buttonHoverOut}>Buy</button></a>
                 </div>
             </div>
         </div>
