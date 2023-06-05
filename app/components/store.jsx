@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { gsap } from 'gsap';
-import {useLoaderData} from '@remix-run/react';
+import {useLoaderData, useFetcher} from '@remix-run/react';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,7 +11,6 @@ import Model from './model';
 export default function Store() {
 
     const {products} = useLoaderData();
-
     const storeRef = useRef();
 
     // Button Hover In Animation
@@ -96,7 +95,7 @@ export default function Store() {
             ctx.revert();
             window.removeEventListener('resize', handleResize);
         } 
-    }, []);
+    }, []); 
 
     return (
         <div className='store' ref={storeRef}>
@@ -122,6 +121,7 @@ export default function Store() {
                 </div>
                 <div className='productButton'>
                     <a href='https://sq-ft-2544.myshopify.com/cart/45015873323315:1' target="_blank" rel="noopener noreferrer"><button onMouseEnter={buttonHoverIn} onMouseLeave={buttonHoverOut}>Buy</button></a>
+                    
                 </div>
             </div>
         </div>

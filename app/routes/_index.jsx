@@ -19,6 +19,14 @@ export function meta() {
     });
   }
 
+  export async function cartCreate({input, storefront}) {
+    const {cartCreate} = await storefront.mutate(CREATE_CART_MUTATION, {
+      variables: {input},
+    });
+  
+    return cartCreate;
+  }
+
   export default function Index() {
 
     const containerRef = useRef();
@@ -81,4 +89,35 @@ query AllProducts {
     }
   }
 }
+`;
+
+//! @see: https://shopify.dev/api/storefront/{api_version}/mutations/cartcreate
+const CREATE_CART_MUTATION = `#graphql
+mutation ($input: CartInput!, $country: CountryCode = ZZ, $language: LanguageCode)
+@inContext(country: $country, language: $language) {
+  cartCreate(input: $input) {
+    cart {
+      ...CartLinesFragment
+    }
+    errors: userErrors {
+      ...ErrorFragment
+    }
+  }
+}
+${LINES_CART_FRAGMENT}
+${USER_ERROR_FRAGMENT}
+`;
+
+const USER_ERROR_FRAGMENT = `#graphql
+    fragment ErrorFragment on CartUserError {
+      message
+      field
+      code
+    }
+`;
+const LINES_CART_FRAGMENT = `#graphql
+    fragment CartLinesFragment on Cart {
+      id
+      totalQuantity
+    }
 `;

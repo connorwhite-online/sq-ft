@@ -10,6 +10,7 @@ import styles from './styles/app.css';
 import landingStyles from './styles/landing.css';
 import menuStyles from './styles/menu.css';
 import storeStyles from './styles/store.css';
+import cartStyles from './styles/cart.css';
 import favicon from '../public/favicon.svg';
 
 export const links = () => {
@@ -18,6 +19,7 @@ export const links = () => {
     {rel: 'stylesheet', href: menuStyles},
     {rel: 'stylesheet', href: landingStyles},
     {rel: 'stylesheet', href: storeStyles},
+    {rel: 'stylesheet', href: cartStyles},
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',

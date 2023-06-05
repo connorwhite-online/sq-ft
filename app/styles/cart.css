@@ -1,0 +1,14 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    width: 100dvw;
+    height: 100dvh;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-link {
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: black;
+}
