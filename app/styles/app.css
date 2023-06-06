@@ -10,5 +10,6 @@ body::-webkit-scrollbar {
 
 .disable-scroll {
   overflow-y: hidden;
+  overflow-x: auto;
 }
 

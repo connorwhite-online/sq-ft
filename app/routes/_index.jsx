@@ -1,5 +1,4 @@
-import React, { useRef, useEffect } from 'react';
-import {useLoaderData} from '@remix-run/react';
+import React, { useRef, useEffect, useState } from 'react';
 import {json} from '@shopify/remix-oxygen';
 import Landing from "~/components/landing";
 import Menu from "~/components/menu";
@@ -44,17 +43,12 @@ export function meta() {
       };
     }, []);
 
-    const handleWheel = (evt) => {
-      evt.preventDefault();
-      evt.currentTarget.scrollLeft += evt.deltaY;
+    const handleWheel = (e) => {
+      e.preventDefault();
+      // containerRef.current.scrollLeft += e.deltaY;
+      window.scrollBy(e.deltaY, 0);
+      console.log(containerRef.current.scrollBy);
     };
-
-    // const handleWheel = (e) => {
-    //   e.preventDefault();
-    //   // containerRef.current.scrollLeft += e.deltaY;
-    //   window.scrollBy(e.deltaY, 0);
-    //   console.log(containerRef.current.scrollBy);
-    // };
 
     return (
       <div className="app" ref={containerRef} onWheel={handleWheel}>
