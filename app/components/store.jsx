@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { gsap } from 'gsap';
-import {useLoaderData, useFetcher} from '@remix-run/react';
+import {useLoaderData } from '@remix-run/react';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
