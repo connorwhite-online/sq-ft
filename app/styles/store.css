@@ -70,7 +70,7 @@
     }
     .webgl {
         width: 33vw;
-        height: 75vh;
+        height: 90vh;
     }
     .product {
         width: 20vw;
@@ -84,7 +84,7 @@
     }
     .productDescription {
         font-size: 1.25vw;
-        text-align: left;
+        /* text-align: left; */
     }
     .productButton {
         align-self: flex-start;
