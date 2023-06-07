@@ -30,7 +30,7 @@ export default function Menu() {
         <div className='menu' ref={menuRef}>
             <div className='logoBox'><a href="/"><img className='logo' src='./images/logo-full-black.svg' alt='sqft logo'></img></a></div>
             <div className='nav'>
-                <div className='navItem'><a className='navLink' href="mailto:advertising@amagazinecuratedby.com" >Contact</a></div>
+                <div className='navItem'><a className='navLink' href="mailto:sqftmag@gmail.com" >Contact</a></div>
             </div>
         </div>
     )
