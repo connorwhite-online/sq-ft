@@ -60,20 +60,20 @@
     .store {
         width: 60vw;
         height: 100vh;
-        padding: 0 2vw;
+        padding: 0 2.5vw;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         margin-left: 100vw;
         margin-top: 0;
-        gap: 2.5vw;
+        gap: 2vw;
     }
     .webgl {
-        width: 33vw;
+        width: 35vw;
         height: 90vh;
     }
     .product {
-        width: 20vw;
+        width: 18vw;
         height: auto;
     }
     .productName {
@@ -83,7 +83,7 @@
         font-size: 2vw;
     }
     .productDescription {
-        font-size: 1.25vw;
+        font-size: 1.15vw;
         /* text-align: left; */
     }
     .productButton {
