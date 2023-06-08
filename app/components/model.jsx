@@ -1,10 +1,12 @@
 import { useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useGLTF } from "@react-three/drei";
+import { dampE } from 'maath/easing';
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/sqft-01.glb");
   const groupRef = useRef();
+  const rotationRef = useRef([0, 0, 0]);
 
   // Rotate the model based on mouse movement
   const handleMouseMove = (event) => {
@@ -14,10 +16,7 @@ export default function Model(props) {
     const x = (clientX / innerWidth) * 2 - 1;
     const y = -(clientY / innerHeight) * 2 + 1;
 
-    setTimeout(() => {
-      groupRef.current.rotation.x = y * -.5;
-      groupRef.current.rotation.y = x * 2.5;
-    }, 150);
+    rotationRef.current = [y * -0.5, x * 2.5, 0];
   };
 
   // useFrame(( state, delta ) => {
@@ -37,11 +36,14 @@ export default function Model(props) {
   // });
 
   // Auto-rotate the model
-  useFrame(({ clock }) => {
+  useFrame((state, delta) => {
     if (window.innerWidth <= 900) {
-      const elapsedTime = clock.getElapsedTime();
+      const elapsedTime = state.clock.getElapsedTime();
       groupRef.current.rotation.y = elapsedTime * 0.25; // Adjust the rotation speed as needed
       groupRef.current.rotation.x = 0;
+    } else {
+      const targetRotation = rotationRef.current;
+      dampE(groupRef.current.rotation, targetRotation, 0.25, delta);
     }
   });
 
