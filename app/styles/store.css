@@ -67,6 +67,7 @@
         margin-left: 100vw;
         margin-top: 0;
         gap: 2vw;
+        scroll-snap-align: end;
     }
     .webgl {
         width: 35vw;
