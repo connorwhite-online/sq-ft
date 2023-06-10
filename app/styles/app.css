@@ -3,18 +3,19 @@ html, body {
   background: #fbf8f1;
   font-family:'Helvetica Neue', sans-serif;
   padding: 0;
-  
+  /* scroll-behavior: smooth; */
 }
 body::-webkit-scrollbar {
   display: none;
 }
 
 .app {
-  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
 }
 
 .disable-scroll {
   overflow-y: hidden;
   overflow-x: auto;
+  
 }
 
