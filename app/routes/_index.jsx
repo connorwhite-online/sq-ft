@@ -21,6 +21,7 @@ export function meta() {
   export default function Index() {
 
     const containerRef = useRef();
+    const currentScrollY = useRef(0);
 
     useEffect(() => {
       const handleScroll = () => {
@@ -43,11 +44,28 @@ export function meta() {
       };
     }, []);
 
+    // Original working solution
+    // const handleWheel = (e) => {
+    //   e.preventDefault();
+    //   window.scrollBy(e.deltaY, 0);
+    //   console.log(e.deltaY);
+    // };
+
+    // Kind of damps, but not very smooth
+    // const handleWheel = (e) => {
+    //   e.preventDefault();
+    //   const currentScrollY = containerRef.current.scrollTop;
+    //   const newScrollY = previousScrollY.current + e.deltaY * 0.1;
+
+    //   window.scrollBy(newScrollY, 0);
+    //   currentScrollY.current = newScrollY;
+    //   console.log(currentScrollY.current);
+    // };
+
     const handleWheel = (e) => {
       e.preventDefault();
-      // containerRef.current.scrollLeft += e.deltaY;
-      window.scrollBy(e.deltaY, 0);
-      console.log(containerRef.current.scrollBy);
+      const newScrollY = currentScrollY.current + (e.deltaY) * 0.2;
+      window.scrollBy(newScrollY, 0);
     };
 
     return (
