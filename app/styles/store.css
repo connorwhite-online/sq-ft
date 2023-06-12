@@ -39,8 +39,13 @@
 .productDescription {
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 4vw;
-    padding-bottom: 5vh;
+    padding-bottom: 3vh;
     text-align: justify;
+}
+.productDetails {
+    font-family: 'Butler-Medium';
+    font-size: 4vw;
+    padding-bottom: 5vh;
 }
 .productButton {
     align-self: center;
@@ -84,8 +89,13 @@
         font-size: 2vw;
     }
     .productDescription {
-        font-size: 1.15vw;
+        font-size: 1vw;
         /* text-align: left; */
+        padding-bottom: 2vh;
+    }
+    .productDetails {
+        font-size: 1vw;
+        padding-bottom: 3vh;
     }
     .productButton {
         align-self: flex-start;
