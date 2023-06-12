@@ -121,9 +121,9 @@ export default function Store() {
                     {products[0].description}
                 </div>
                 <div className='productDetails'>
-                    Size: 297 x 230mm<br/>
-                    Pagination: 174 pages<br/>
-                    Ships globally in a recycled paper mailer
+                    <span>Size:</span> 297 x 230mm<br/>
+                    <span>Pagination:</span> 174 pages<br/>
+                    Ships globally in a paper mailer
                 </div>
                 <div className='productButton'>
                     <a href='https://sq-ft-2544.myshopify.com/cart/45015873323315:1' target="_blank" rel="noopener noreferrer"><button onMouseEnter={buttonHoverIn} onMouseLeave={buttonHoverOut}>Buy</button></a>

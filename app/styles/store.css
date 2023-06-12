@@ -4,6 +4,18 @@
         url('../fonts/Butler-Medium.woff2') format('woff2');
 }
 
+@font-face {
+    font-family: 'Butler-Bold';
+    src: url('../fonts/Butler-Bold.woff') format('woff'),
+        url('../fonts/Butler-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Butler-Light';
+    src: url('../fonts/Butler-Light.woff') format('woff'),
+        url('../fonts/Butler-Light.woff2') format('woff2');
+}
+
 .store {
     width: 100vw;
     padding-bottom: 10vh;
@@ -43,9 +55,12 @@
     text-align: justify;
 }
 .productDetails {
-    font-family: 'Butler-Medium';
+    font-family: 'Butler-Light';
     font-size: 4vw;
     padding-bottom: 5vh;
+}
+.productDetails span {
+    font-family: 'Butler-Bold';
 }
 .productButton {
     align-self: center;
