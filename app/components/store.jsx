@@ -75,6 +75,11 @@ export default function Store() {
                     opacity: 0,
                     ease: 'power3.inOut',
                 }, 2);
+                tl.from('.productDetails', {
+                    duration: 1,
+                    opacity: 0,
+                    ease: 'power3.inOut',
+                }, 2.25);
                 tl.from('.productButton', {
                     duration: 1,
                     opacity: 0,
