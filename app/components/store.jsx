@@ -44,7 +44,7 @@ export default function Store() {
     useEffect(() => {
         let ctx = gsap.context(() => {
             gsap.from('.webgl', {
-                duration: 3,
+                duration: 1.5,
                 opacity: 0,
                 ease: 'power3.inOut',
                 scrollTrigger: {
