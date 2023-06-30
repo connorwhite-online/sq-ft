@@ -30,6 +30,7 @@
 .headerCopy {
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 5vw;
+    color: #fcf9f0;
 }
 
 @media screen and (min-width: 768px) {
@@ -46,9 +47,9 @@
     }
     .header {
         width: 60vw;
-        height: 150px;
-        top: 50vh;
-        right: 5vw;
+        height: auto;
+        bottom: 10dvh;
+        right: 2.5vw;
         text-align: left;
         padding: 0;
     }
