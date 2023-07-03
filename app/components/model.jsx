@@ -19,22 +19,6 @@ export default function Model(props) {
     rotationRef.current = [y * -0.5, x * 2.5, 0];
   };
 
-  // useFrame(( state, delta ) => {
-  //   const handleMouseMove = (event) => {
-  //     const { clientX, clientY } = event;
-  //     const { innerWidth, innerHeight } = window;
-
-  //     const x = (clientX / innerWidth) * 2 - 1;
-  //     const y = -(clientY / innerHeight) * 2 + 1;
-
-  //     dampE( groupRef.current.rotation, [y * -.5, x * 2.5, 0], 0.75, delta);
-  //   }
-  //   window.addEventListener('mousemove', handleMouseMove);
-  //   return () => {
-  //     window.removeEventListener('mousemove', handleMouseMove);
-  //   }
-  // });
-
   // Auto-rotate the model
   useFrame((state, delta) => {
     if (window.innerWidth <= 900) {
