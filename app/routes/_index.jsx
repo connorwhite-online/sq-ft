@@ -3,6 +3,7 @@ import {json} from '@shopify/remix-oxygen';
 import Landing from "~/components/landing";
 import Menu from "~/components/menu";
 import Store from "~/components/store";
+import { gsap } from 'gsap';
 
 export function meta() {
     return [
@@ -22,6 +23,12 @@ export function meta() {
 
     const containerRef = useRef();
     const currentScrollY = useRef(0);
+
+    useEffect(() => {
+        gsap.to(containerRef.current, {
+          autoAlpha: 1,
+        });
+      }, []);
 
     useEffect(() => {
       const handleScroll = () => {
@@ -69,7 +76,7 @@ export function meta() {
     };
 
     return (
-      <div className="app" ref={containerRef} onWheel={handleWheel}>
+      <div className="app" ref={containerRef} onWheel={handleWheel} style={{visibility: 'hidden'}}>
           <Menu />
           <Landing />
           <Store />

@@ -8,7 +8,7 @@ export default function Landing() {
     useEffect(() => {
         let ctx = gsap.context(() => {
             let tl = gsap.timeline({});
-                tl.to(landingRef.current, {visibility: 'visible', duration: .25});
+                // tl.to(landingRef.current, {visibility: 'visible', duration: .25});
                 tl.from('.imageContainer', {
                     duration: 1,
                     delay: .5,
