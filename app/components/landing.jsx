@@ -29,7 +29,7 @@ export default function Landing() {
     return (
         <div className='home' ref={landingRef}>
             <div className="imageContainer">
-                <img src='./images/P-30-tint.jpg' alt='home' className='homeImage' />
+                <img src='./images/P-30-tint.png' alt='home' className='homeImage' />
             </div>
             <div className='header'>
                 <div className='headerCopy'>
