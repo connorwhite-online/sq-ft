@@ -24,7 +24,7 @@
     padding: 0 2.5vw;
     bottom: 17.5vh;
     text-align: center;
-    clip-path: inset(0);
+    /* clip-path: inset(0); */
 }
 
 .headerCopy {
