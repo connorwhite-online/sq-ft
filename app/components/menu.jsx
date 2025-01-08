@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 
 export default function Menu() {
-
     const menuRef = useRef();
 
     // Menu Loading Animations
@@ -28,10 +27,19 @@ export default function Menu() {
 
     return (
         <div className='menu' ref={menuRef}>
-            <div className='logoBox'><a href="/"><img className='logo' src='./images/logo-full-light.svg' alt='sqft logo'></img></a></div>
+            <div className='logoBox'>
+                <a href="/"><img className='logo' src='./images/logo-full-light.svg' alt='sqft logo'></img></a>
+            </div>
             <div className='nav'>
-                <div className='navItem'><a className='navLink' href="mailto:sqftmag@gmail.com" >Contact</a></div>
+                <div className='navItem'>
+                    <a 
+                        className='navLink' 
+                        href="mailto:sqftmag@gmail.com"
+                    >
+                        Contact <span className="arrow">↗</span>
+                    </a>
+                </div>
             </div>
         </div>
-    )
+    );
 }

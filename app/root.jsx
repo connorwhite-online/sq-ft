@@ -28,6 +28,11 @@ export const links = () => {
       rel: 'preconnect',
       href: 'https://shop.app',
     },
+    {
+      rel: 'preload',
+      href: './images/P-30-tint.png',
+      as: 'image',
+    },
     {rel: 'icon', type: 'image/svg+xml', href: favicon},
   ];
 };

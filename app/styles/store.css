@@ -68,12 +68,18 @@
 .productButton button {
     font-family: 'Butler-Medium';
     color: black;
-    background-color: transparent;
+    background-color: #eae8de;
     border: 1px solid black;
     padding: 1vh 15vw;
     font-size: 5vw;
     cursor: pointer;
-    
+    transition: all 0.4s ease;
+}
+
+.productButton button:hover {
+    color: #fbf8f1;
+    background-color: #000000;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 @media screen and (min-width: 768px) {
@@ -119,4 +125,18 @@
         font-size: 1.5vw;
         padding: 1vh 5vw;
     }
+}
+
+.splitText {
+    display: inline-block;
+}
+
+.char {
+    display: inline-block;
+    will-change: transform;
+}
+
+.nameChar, .priceChar {
+    display: inline-block;
+    will-change: transform;
 }

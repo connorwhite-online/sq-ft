@@ -8,9 +8,6 @@
     z-index: 10;
     visibility: hidden;
 }
-.logoBox {
-    
-}
 .logo {
     width: 50vw;
     height: auto;
@@ -18,14 +15,34 @@
 .nav {
     clip-path: inset(0);
 }
-.navItem {
-
-}
 a.navLink {
     text-decoration: none;
     color: #fcf9f0;
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 5vw;
+    padding: 1vh 2vw;
+    transition: all 0.4s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+}
+
+.arrow {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: all 0.2s ease;
+}
+
+a.navLink:hover {
+    color: #000000;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+    gap: 0.5em;
+}
+
+a.navLink:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 @media screen and (min-width: 768px) {
@@ -34,18 +51,9 @@ a.navLink {
         padding: 2.5vw;
         justify-content: space-between;
     }
-    .logoBox {
-    
-    }
     .logo {
         width: 25vw;
         height: auto;
-    }
-    .nav {
-    
-    }
-    .navItem {
-        
     }
     a.navLink {
         font-size: 1.5vw;
