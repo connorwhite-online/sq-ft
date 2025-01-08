@@ -8,14 +8,16 @@ export default function Model(props) {
   const groupRef = useRef();
   const rotationRef = useRef([0, 0, 0]);
   const orbitControlsRef = useRef();
+  const isControllingRef = useRef(false);
+  const isResettingRef = useRef(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
   
   // Animation state
   const targetRotationRef = useRef(0);
-  const rotationSteps = [Math.PI * 0.1, Math.PI * 0.25, Math.PI * 1.1, Math.PI * 1.25]; // 0°, 90°, 180°, 270°
+  const rotationSteps = [Math.PI * 0.1, Math.PI * 0.25, Math.PI * 1.1, Math.PI * 1.25];
   const currentStepRef = useRef(0);
-  const fastDamping = 0.25;  // Much slower fast lerp
-  const slowDamping = 3;  // Extremely slow lerp
+  const fastDamping = 0.5;
+  const slowDamping = 3;
 
   // Handle mouse movement (desktop)
   const handleMouseMove = (event) => {
@@ -33,16 +35,14 @@ export default function Model(props) {
   // Animation frame update
   useFrame((state, delta) => {
     if (isMobile) {
-      if (!orbitControlsRef.current?.isDragging) {
+      if (!orbitControlsRef.current?.isDragging && !isResettingRef.current && !isControllingRef.current) {
         const currentY = groupRef.current.rotation.y;
         const distance = Math.abs(targetRotationRef.current - currentY);
 
         // Check if we've reached the target
         if (distance < 0.01) {
-          // Move to next step
           currentStepRef.current = (currentStepRef.current + 1) % rotationSteps.length;
           
-          // Add a full rotation when completing a cycle
           if (currentStepRef.current === 0) {
             rotationSteps.forEach((step, index) => {
               rotationSteps[index] = step + Math.PI * 2;
@@ -79,13 +79,32 @@ export default function Model(props) {
     };
   }, [isMobile]);
 
+  // Add these handlers to the OrbitControls component
+  const handleControlsStart = () => {
+    isControllingRef.current = true;
+  };
+
+  const handleControlsChange = () => {
+    if (orbitControlsRef.current?.isDragging) {
+      isControllingRef.current = true;
+    }
+  };
+
+  // Modify the handleControlsEnd function
   const handleControlsEnd = () => {
     if (orbitControlsRef.current) {
+      isResettingRef.current = true;
+      isControllingRef.current = false;
+      
       // Reset to initial camera position
-      orbitControlsRef.current.setAzimuthalAngle(0);  // Y-axis rotation
-      orbitControlsRef.current.setPolarAngle(Math.PI / 2);  // X-axis rotation
-      orbitControlsRef.current.target.set(0, 0, 0);  // Reset target point
+      orbitControlsRef.current.setAzimuthalAngle(0);
+      orbitControlsRef.current.setPolarAngle(Math.PI / 2);
+      orbitControlsRef.current.target.set(0, 0, 0);
       orbitControlsRef.current.update();
+
+      setTimeout(() => {
+        isResettingRef.current = false;
+      }, 1000);
     }
   };
 
@@ -99,6 +118,8 @@ export default function Model(props) {
           enableDamping={true}
           dampingFactor={0.025}
           rotateSpeed={0.5}
+          onStart={handleControlsStart}
+          onChange={handleControlsChange}
           onEnd={handleControlsEnd}
         />
       )}
